@@ -1,3 +1,7 @@
+"use strict";
+
+var clockZone = document.querySelector(".clockZone");
+
 var hourZone = document.getElementsByClassName("hourZone")[0];
 var minZone = document.getElementsByClassName("minZone")[0];
 var secZone = document.getElementsByClassName("secZone")[0];
@@ -79,3 +83,15 @@ function setClock(){
 }
 
 setClock();
+
+/* DOM 이벤트 */
+var alarmButton = document.querySelector("#alarmButton");
+var alarmSection = document.querySelector(".alarmSection");
+
+alarmButton.addEventListener("click", moveAlarmSection);
+
+
+function moveAlarmSection(){
+    alarmSection.style.left = "0px";
+
+}
