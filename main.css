@@ -108,6 +108,7 @@ html, body{
     position: absolute;
     top: 0;
     left: -200px;
+    transition: 1s;
 }
 #alarmButton{
     width: 50px;

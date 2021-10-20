@@ -1,5 +1,6 @@
 "use strict";
 
+var clockSection = document.querySelector(".clockSection");
 var clockZone = document.querySelector(".clockZone");
 
 var hourZone = document.getElementsByClassName("hourZone")[0];
@@ -92,6 +93,11 @@ alarmButton.addEventListener("click", moveAlarmSection);
 
 
 function moveAlarmSection(){
-    alarmSection.style.left = "0px";
+    if (alarmSection.style.left != "0px"){
+        alarmSection.style.left = "0px";
+
+    }else{
+        alarmSection.style.left = "-200px";
+    }
 
 }
