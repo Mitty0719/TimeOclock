@@ -31,7 +31,9 @@ var signNumber = [
 ]
 
 var numberHour = [
-    "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE"
+    "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE",
+    "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN",
+    "TWENTY", "TWENTY-ONE", "TWENTY-TWO", "TWENTY-THREE"
 ]
 var numberMin = [
     "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
@@ -119,16 +121,15 @@ var alarmMin = document.querySelector("#alarmMin");
 var alarmHourIdx = 0;
 var alarmMinIdx = 0;
 
-alarmHour.addEventListener("click", changeAlarmTime("hour"));
-alarmMin.addEventListener("click", changeAlarmTime("min"));
+alarmHour.addEventListener("click", changeAlarmHour); //Add scroll Event
+alarmMin.addEventListener("click", changeAlramMin);
 
-function changeAlarmTime(type){
-    debugger;
-    if(type == "hour"){
-        alarmHourIdx = alarmHourIdx == 11 ? 0 : alarmHourIdx;
-        alarmHour.innerText = alarmHour[++alarmHourIdx];
-    }else{
-        alarmMinIdx = alarmMinIdx == 59 ? 0 : alarmMinIdx;
-        alarmMin.innerText = alarmMin[++alarmMinIdx];
-    }
+function changeAlarmHour(){
+    alarmHourIdx = alarmHourIdx == 23 ? 0 : alarmHourIdx;
+    alarmHour.innerText = numberHour[++alarmHourIdx];
+}
+function changeAlramMin(){
+    alarmMinIdx = alarmMinIdx == 59 ? 0 : alarmMinIdx;
+    alarmMin.innerText = numberMin[++alarmMinIdx];
+    
 }

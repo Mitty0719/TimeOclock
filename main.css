@@ -106,16 +106,17 @@ html, body{
 .alarmSection{
     width: 200px;
     height: 100%;
-    background-color: red;
+    background-color: #333;
     position: absolute;
     top: 0;
     left: -200px;
     transition: 1s;
+    color: #fff;
 }
 #alarmButton{
     width: 50px;
     height: 50px;
-    background-color: blue;
+    background-color: #444;
     position: absolute;
     top: 20px;
     right: -70px;
