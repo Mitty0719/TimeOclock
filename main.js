@@ -17,7 +17,7 @@ var minZoneSecondLines = document.querySelectorAll(".minZone .secondSign div");
 var currHour;
 var currMin;
 
-var numbering = [
+var signNumber = [
     ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#222"],    // 0
     ["#222", "#fff", "#fff", "#222", "#222", "#222", "#222"],    // 1
     ["#fff", "#fff", "#222", "#fff", "#fff", "#222", "#fff"],    // 2
@@ -30,15 +30,26 @@ var numbering = [
     ["#fff", "#fff", "#fff", "#fff", "#222", "#fff", "#fff"]     // 9 
 ]
 
+var numberHour = [
+    "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE"
+]
+var numberMin = [
+    "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen",
+    "twenty", "twenty-one", "twenty-two", "twenty-three", "twenty-four", "twenty-five", "twenty-six", "twenty-seven", "twenty-eight", "twenty-nine",
+    "thirty", "thirty-one", "thirty-two", "thirty-three", "thirty-four", "thirty-five", "thirty-six", "thirty-seven", "thirty-eight", "thirty-nine",
+    "forty", "forty-one", "forty-two", "forty-three", "forty-four", "forty-five", "forty-six", "forty-seven", "forty-eight", "forty-nine",
+    "fifty", "fifty-one", "fifty-two", "fifty-three", "fifty-four", "fifty-five", "fifty-six", "fifty-seven", "fifty-eight", "fifty-nine",
+]
 
 function changeSign(zone, number){
-    zone[0].style.backgroundColor = numbering[number][0];
-    zone[1].style.backgroundColor = numbering[number][1];
-    zone[2].style.backgroundColor = numbering[number][2];
-    zone[3].style.backgroundColor = numbering[number][3];
-    zone[4].style.backgroundColor = numbering[number][4];
-    zone[5].style.backgroundColor = numbering[number][5];
-    zone[6].style.backgroundColor = numbering[number][6];
+    zone[0].style.backgroundColor = signNumber[number][0];
+    zone[1].style.backgroundColor = signNumber[number][1];
+    zone[2].style.backgroundColor = signNumber[number][2];
+    zone[3].style.backgroundColor = signNumber[number][3];
+    zone[4].style.backgroundColor = signNumber[number][4];
+    zone[5].style.backgroundColor = signNumber[number][5];
+    zone[6].style.backgroundColor = signNumber[number][6];
 }
 
 function timeCheck(){
@@ -85,19 +96,39 @@ function setClock(){
 
 setClock();
 
-/* DOM 이벤트 */
+/* DOM Event */
 var alarmButton = document.querySelector("#alarmButton");
 var alarmSection = document.querySelector(".alarmSection");
 
 alarmButton.addEventListener("click", moveAlarmSection);
 
-
 function moveAlarmSection(){
     if (alarmSection.style.left != "0px"){
         alarmSection.style.left = "0px";
-
+        clockZone.style.left = "100px";
     }else{
         alarmSection.style.left = "-200px";
+        clockZone.style.left = "0px";
     }
 
+}
+
+/* alarm Event */
+var alarmHour = document.querySelector("#alarmHour");
+var alarmMin = document.querySelector("#alarmMin");
+var alarmHourIdx = 0;
+var alarmMinIdx = 0;
+
+alarmHour.addEventListener("click", changeAlarmTime("hour"));
+alarmMin.addEventListener("click", changeAlarmTime("min"));
+
+function changeAlarmTime(type){
+    debugger;
+    if(type == "hour"){
+        alarmHourIdx = alarmHourIdx == 11 ? 0 : alarmHourIdx;
+        alarmHour.innerText = alarmHour[++alarmHourIdx];
+    }else{
+        alarmMinIdx = alarmMinIdx == 59 ? 0 : alarmMinIdx;
+        alarmMin.innerText = alarmMin[++alarmMinIdx];
+    }
 }
