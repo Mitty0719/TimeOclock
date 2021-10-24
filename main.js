@@ -118,8 +118,13 @@ function moveAlarmSection(){
 /* alarm Event */
 var alarmHour = document.querySelector("#alarmHour");
 var alarmMin = document.querySelector("#alarmMin");
+var alramSwitch = document.querySelector("#alarmSwitch");
+var toggleSpace = document.querySelector("#toggleSpace");
+var alarmToggle = document.querySelector("#toggle");
+
 var alarmHourIdx = 0;
 var alarmMinIdx = 0;
+var onAlarm = false;
 
 alarmHour.addEventListener("click", changeAlarmHour); //Add scroll Event
 alarmMin.addEventListener("click", changeAlramMin);
@@ -131,5 +136,18 @@ function changeAlarmHour(){
 function changeAlramMin(){
     alarmMinIdx = alarmMinIdx == 59 ? 0 : alarmMinIdx;
     alarmMin.innerText = numberMin[++alarmMinIdx];
-    
+}
+
+alarmSwitch.addEventListener("click", alarmCheck);
+
+function alarmCheck(){
+    if(onAlarm){
+        alarmToggle.style.left = "0px";
+        toggleSpace.style.backgroundColor = "#888"
+        onAlarm = false;
+    }else{
+        alarmToggle.style.left = "30px"
+        toggleSpace.style.backgroundColor = "#68C151";
+        onAlarm = true;
+    }
 }
