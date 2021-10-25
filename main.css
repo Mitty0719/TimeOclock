@@ -121,9 +121,12 @@ html, body{
     top: 20px;
     right: -70px;
 }
+.alarmControl{
+    height: 100%;
+}
 #alarmSwitch{
     width: 100%;
-    height: 80px;
+    height: 10%;
     display: flex;
     position: relative;
     align-items: center;
@@ -146,15 +149,24 @@ html, body{
     transition: 1s;
 }
 
+#alarmTime{
+    height: 90%;
+}
 #alarmHour{
+    width: 400px;
     height: 50px;
     font-size: 60px;
     transform: rotate(-90deg);
+    position: absolute;
+    top: 200px;
+    right: 20px;
 }
 #alarmMin{
+    width: 300px;
     height: 50px;
     font-size: 48px;
     transform: rotate(-90deg);
-    position: relative;
-    right: 0;
+    position: absolute;
+    top: 200px;
+    right: -50px;
 }

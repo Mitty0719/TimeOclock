@@ -60,6 +60,9 @@ function timeCheck(){
     let minute = String(time.getMinutes());
     let second = String(time.getSeconds());
 
+    currHour = time.getHours();
+    currMin = time.getMinutes();
+
     if(hour.length == 1){
         hour = "0" + hour;
     }
@@ -85,6 +88,8 @@ function timeCheck(){
     }
     
     secZone.innerText = second;
+
+    alarmCheck();
 }
 function setSeparator(){
     separator.style.visibility = separator.style.visibility == "hidden" ? "visible" : "hidden";
@@ -138,9 +143,9 @@ function changeAlramMin(){
     alarmMin.innerText = numberMin[++alarmMinIdx];
 }
 
-alarmSwitch.addEventListener("click", alarmCheck);
+alarmSwitch.addEventListener("click", alarmOnOff);
 
-function alarmCheck(){
+function alarmOnOff(){
     if(onAlarm){
         alarmToggle.style.left = "0px";
         toggleSpace.style.backgroundColor = "#888"
@@ -149,5 +154,11 @@ function alarmCheck(){
         alarmToggle.style.left = "30px"
         toggleSpace.style.backgroundColor = "#68C151";
         onAlarm = true;
+    }
+}
+
+function alarmCheck(){
+    if(alarmHourIdx == currHour && alarmMinIdx == currMin){
+        debugger;
     }
 }
