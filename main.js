@@ -73,14 +73,14 @@ function timeCheck(){
         second = "0" + second;
     }
     
-    if(currHour != hour){
+    if(true){
         let firstHour = hour.charAt(0);
         let secondHour = hour.charAt(1);
         changeSign(hourZoneFirstLines, firstHour);
         changeSign(hourZoneSecondLines, secondHour);
     }
 
-    if(currMin != minute){
+    if(true){
         let firstMin = minute.charAt(0);
         let secondMin = minute.charAt(1);
         changeSign(minZoneFirstLines, firstMin);
@@ -89,7 +89,9 @@ function timeCheck(){
     
     secZone.innerText = second;
 
-    alarmCheck();
+    if(onAlarm){
+        alarmCheck();
+    }
 }
 function setSeparator(){
     separator.style.visibility = separator.style.visibility == "hidden" ? "visible" : "hidden";
