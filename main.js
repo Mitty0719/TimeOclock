@@ -14,8 +14,14 @@ var hourZoneSecondLines = document.querySelectorAll(".hourZone .secondSign div")
 var minZoneFirstLines = document.querySelectorAll(".minZone .firstSign div");
 var minZoneSecondLines = document.querySelectorAll(".minZone .secondSign div");
 
+var alarmWin = document.querySelector("#alarmWin");
+var btnAlarmStop = document.querySelector("#btnAlarmStop");
+
 var currHour;
 var currMin;
+var currSec;
+
+var audio;
 
 var signNumber = [
     ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#222"],    // 0
@@ -62,6 +68,7 @@ function timeCheck(){
 
     currHour = time.getHours();
     currMin = time.getMinutes();
+    currSec = time.getSeconds();
 
     if(hour.length == 1){
         hour = "0" + hour;
@@ -160,7 +167,19 @@ function alarmOnOff(){
 }
 
 function alarmCheck(){
-    if(alarmHourIdx == currHour && alarmMinIdx == currMin){
-        debugger;
+    if(alarmHourIdx == currHour && alarmMinIdx == currMin && audio == null){
+        audio = new Audio("wakeupsong.mp3");
+        audio.loop = true;
+        audio.play();
     }
+    onAlarm = true;
+    alarmWin.style.display = "block";
 }
+
+function alarmStop(){
+    audio.pause();
+    audio = null;
+    alarmWin.style.display = "none";
+}
+
+btnAlarmStop.addEventListener("click", alarmStop);

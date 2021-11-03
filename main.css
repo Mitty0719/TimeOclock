@@ -169,3 +169,10 @@ html, body{
     position: absolute;
     top: 250px;
 }
+#alarmWin{
+    width: 500px;
+    height: 300px;
+    background-color: greenyellow;
+    display: none;
+    position: absolute;
+}
