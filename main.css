@@ -171,8 +171,17 @@ html, body{
 }
 #alarmWin{
     width: 500px;
-    height: 300px;
+    height: 150px;
     background-color: greenyellow;
-    display: none;
     position: absolute;
+    top: -150px;
+    left: 50%;
+    margin-left: -250px;
+}
+#btnAlarmStop{
+    width: 100px;
+    height: 40px;
+    background-color: rgba(255, 100, 100, 1);
+    border: none;
+    border-radius: 20px;
 }

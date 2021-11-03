@@ -171,6 +171,8 @@ function alarmCheck(){
         audio = new Audio("wakeupsong.mp3");
         audio.loop = true;
         audio.play();
+
+        alarmWin.style.top = "0px";
     }
     onAlarm = true;
     alarmWin.style.display = "block";
@@ -179,7 +181,7 @@ function alarmCheck(){
 function alarmStop(){
     audio.pause();
     audio = null;
-    alarmWin.style.display = "none";
+    alarmWin.style.top = "-150px";
 }
 
 btnAlarmStop.addEventListener("click", alarmStop);
