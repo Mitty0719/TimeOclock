@@ -152,9 +152,9 @@ function changeAlramMin(){
     alarmMin.innerText = numberMin[++alarmMinIdx];
 }
 
-alarmSwitch.addEventListener("click", alarmOnOff);
+alarmSwitch.addEventListener("click", alarmSwitchOnOff);
 
-function alarmOnOff(){
+function alarmSwitchOnOff(){
     if(onAlarm){
         alarmToggle.style.left = "0px";
         toggleSpace.style.backgroundColor = "#888"
@@ -174,7 +174,6 @@ function alarmCheck(){
 
         alarmWin.style.top = "0px";
     }
-    onAlarm = true;
     alarmWin.style.display = "block";
 }
 
@@ -182,6 +181,7 @@ function alarmStop(){
     audio.pause();
     audio = null;
     alarmWin.style.top = "-150px";
+    alarmSwitchOnOff();
 }
 
 btnAlarmStop.addEventListener("click", alarmStop);

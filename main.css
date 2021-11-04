@@ -172,11 +172,24 @@ html, body{
 #alarmWin{
     width: 500px;
     height: 150px;
-    background-color: greenyellow;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0px 0px 25px 25px;
     position: absolute;
     top: -150px;
     left: 50%;
     margin-left: -250px;
+    transition: 1s;
+    display: grid;
+}
+#alarmWin div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#alarmWin div:first-child{
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
 }
 #btnAlarmStop{
     width: 100px;
