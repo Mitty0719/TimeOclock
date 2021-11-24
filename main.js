@@ -1,21 +1,21 @@
 "use strict";
 (function(){
-    let clockSection = document.querySelector(".clockSection");
-    let clockZone = document.querySelector(".clockZone");
+    const clockSection = document.querySelector(".clockSection");
+    const clockZone = document.querySelector(".clockZone");
 
-    let hourZone = document.getElementsByClassName("hourZone")[0];
-    let minZone = document.getElementsByClassName("minZone")[0];
-    let secZone = document.getElementsByClassName("secZone")[0];
+    const hourZone = document.querySelector(".hourZone")[0];
+    const minZone = document.querySelector(".minZone")[0];
+    const secZone = document.querySelector(".secZone")[0];
 
-    let separator = document.getElementById("separator");
+    const separator = document.querySelector("#separator");
 
-    let hourZoneFirstLines = document.querySelectorAll(".hourZone .firstSign div");
-    let hourZoneSecondLines = document.querySelectorAll(".hourZone .secondSign div");
-    let minZoneFirstLines = document.querySelectorAll(".minZone .firstSign div");
-    let minZoneSecondLines = document.querySelectorAll(".minZone .secondSign div");
+    const hourZoneFirstLines = document.querySelectorAll(".hourZone .firstSign div");
+    const hourZoneSecondLines = document.querySelectorAll(".hourZone .secondSign div");
+    const minZoneFirstLines = document.querySelectorAll(".minZone .firstSign div");
+    const minZoneSecondLines = document.querySelectorAll(".minZone .secondSign div");
 
-    let alarmWin = document.querySelector("#alarmWin");
-    let btnAlarmStop = document.querySelector("#btnAlarmStop");
+    const alarmWin = document.querySelector("#alarmWin");
+    const btnAlarmStop = document.querySelector("#btnAlarmStop");
 
     let currHour;
     let currMin;
@@ -109,7 +109,7 @@
         setInterval(timeCheck, 1000);
         setInterval(setSeparator, 500);
     }
-
+ 
     setClock();
 
     /* DOM Event */
