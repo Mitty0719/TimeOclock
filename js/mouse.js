@@ -14,8 +14,8 @@
     function backImageMoveRaf(){
         currentX += (x - currentX) * speed;
         currentY += (y - currentY) * speed;
-        console.log(x, currentX);
-        console.log(y, currentY);
+        // console.log(x, currentX);
+        // console.log(y, currentY);
 
         backImage.style.transform = 'translate(-' + (currentX * 0.2) + 'px, -' + (currentY * 0.2) + 'px)';
         window.requestAnimationFrame(backImageMoveRaf);
